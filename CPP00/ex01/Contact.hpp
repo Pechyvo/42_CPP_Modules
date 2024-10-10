@@ -7,11 +7,11 @@
 class Contact
 {
 	private:
-		std::string	name;
-		std::string	surname;
-		std::string	nickname;
-		std::string	number;
-		std::string	secret;
+		std::string name;
+		std::string surname;
+		std::string nickname;
+		std::string number;
+		std::string secret;
 	public:
 		Contact();
 		~Contact();

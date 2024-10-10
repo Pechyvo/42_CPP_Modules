@@ -1,7 +1,6 @@
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
-int main(void)
-{
+int main(void) {
     Phonebook   phonebook;
     std::string input;
 
@@ -17,7 +16,7 @@ int main(void)
         else if (input == "EXIT")
             break;
         else if (input == "ADD")
-            /* phonebook.addContact() */;
+            phonebook.addContact();
         else if (input == "SEARCH")
             /* phonebook.searchContact() */;
         else if (input == "HELP")
