@@ -1,8 +1,8 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include "contact.hpp"
-#include "formatting.hpp"
+#include "Contact.hpp"
+#include "Formatting.hpp"
 
 class Phonebook
 {
