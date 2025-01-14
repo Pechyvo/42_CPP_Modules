@@ -31,6 +31,9 @@ pb: fclean all
 pbd: fclean d
 	./phonebook
 
+ac: fclean all
+	./account
+
 re: fclean all
 
 .PHONY: all clean fclean re
