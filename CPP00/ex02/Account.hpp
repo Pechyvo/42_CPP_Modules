@@ -25,6 +25,9 @@ public:
 
 	static int	getNbAccounts( void );
 	static int	getTotalAmount( void );
+	/// @brief 
+	/// @param  
+	/// @return 
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
 	static void	displayAccountsInfos( void );
