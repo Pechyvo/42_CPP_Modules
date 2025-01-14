@@ -25,6 +25,7 @@ class Contact
 		void		setNickname(std::string nickname);
 		void		setNumber(std::string number);
 		void		setSecret(std::string secret);
+		
 };
 
 #endif

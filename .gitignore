@@ -1,3 +1,5 @@
+.vscode/
 *.o
 megaphone
 phonebook
+account

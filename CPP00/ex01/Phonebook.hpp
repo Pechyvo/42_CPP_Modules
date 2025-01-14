@@ -3,17 +3,30 @@
 
 #include "Contact.hpp"
 #include "Formatting.hpp"
+#include <stdlib.h>
+#include <iomanip>
+
+enum eIndex
+{
+	NAME,
+	SURNAME,
+	NICKNAME,
+	NUMBER,
+	SECRET
+};
 
 class Phonebook
 {
 	private:
 		Contact contacts[8];
-		int		index;
+		int index;
 	public:
 		Phonebook();
 		~Phonebook();
-		void    addContact(void);
-		void    searchContact(void);
+		void	addContact(Contact contact);
+		int		getContactQuantity();
+		void	displayPhonebook();
+		void	displayContact(int index);
 };
 
 #endif

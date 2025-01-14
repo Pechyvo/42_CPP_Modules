@@ -1,7 +1,11 @@
-NAME	= phonebook
+NAME	= ../phonebook
 
 CC		= c++ -std=c++98
 FLAGS	= -Wall -Werror -Wextra -fsanitize=address
+
+ifdef DEBUG
+FLAGS += -DDEBUG
+endif
 
 SRC		= *.cpp
 OBJ		= $(SRC:.cpp=.o)
