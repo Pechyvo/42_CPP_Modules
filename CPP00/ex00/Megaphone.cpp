@@ -1,8 +1,7 @@
 #include "Formatting.hpp"
 #include <iostream>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     int i = -1;
     int j;
     if (argc < 2)

@@ -1,6 +1,5 @@
 #include "Phonebook.hpp"
 
-void printFrame();
 void truncate(std::string str);
 
 Phonebook::Phonebook() {
@@ -28,7 +27,7 @@ int Phonebook::getContactQuantity() {
 }
 
 void Phonebook::displayPhonebook() {
-	printFrame();
+	std::cout << CYAN << "•———————————————————————————————————————————•" << RESET << std::endl;
 	std::cout<<CYAN<<"¦"<<PURPLE<<"     Index"<<CYAN<<"¦"<<PURPLE<<"First Name"<<CYAN<<"¦"<< PURPLE <<" Last Name"<<CYAN<<"¦"<<PURPLE<<"  Nickname"<<CYAN<<"¦"<<RESET<<std::endl;
 	
 	for (int i = 0; i < 8; i++) {
@@ -40,15 +39,7 @@ void Phonebook::displayPhonebook() {
 			std::cout << std::endl;
 		}
 	}
-	printFrame();
-}
-// •
-void printFrame() {
-	std::cout << CYAN << "•";
-	for (int i = 0; i < 43; i++) {
-        std::cout << "—";
-    }
-    std::cout << "•\n" << RESET;
+	std::cout << CYAN << "•———————————————————————————————————————————•" << RESET << std::endl;
 }
 
 void truncate(std::string str) {
