@@ -1,3 +1,4 @@
+#pragma once
 #ifndef FORMATTING_HPP
 #define FORMATTING_HPP
 
