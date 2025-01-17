@@ -6,17 +6,7 @@
 #include <stdlib.h>
 #include <iomanip>
 
-enum eIndex
-{
-	NAME,
-	SURNAME,
-	NICKNAME,
-	NUMBER,
-	SECRET
-};
-
-class Phonebook
-{
+class Phonebook {
 	private:
 		Contact contacts[8];
 		int index;
