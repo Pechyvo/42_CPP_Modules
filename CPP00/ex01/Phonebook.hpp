@@ -3,7 +3,7 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
-#include "Formatting.hpp"
+#include "../Formatting.hpp"
 #include <stdlib.h>
 #include <iomanip>
 

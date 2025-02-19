@@ -1,5 +1,5 @@
 #include "Account.hpp"
-#include "Formatting.hpp"
+#include "../Formatting.hpp"
 #include <iostream>
 #include <iomanip>
 
@@ -56,7 +56,7 @@ void Account::_displayTimestamp(void) {
     struct tm *timeinfo = localtime(&now);
     char buffer[20];
 
-    strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S] ", timeinfo);
+    strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", timeinfo);
     std::cout << YELLOW << "[" << GREEN << buffer << YELLOW << "] " << RESET;
 }
 
