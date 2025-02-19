@@ -52,11 +52,11 @@ int Account::checkAmount(void) const {
 }
 
 void Account::_displayTimestamp(void) {
-    time_t now = time(NULL);
-    struct tm *timeinfo = localtime(&now);
+    std::time_t now = std::time(NULL);
+    std::tm *timeinfo = std::localtime(&now);
     char buffer[20];
 
-    strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", timeinfo);
+    std::strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", timeinfo);
     std::cout << YELLOW << "[" << GREEN << buffer << YELLOW << "] " << RESET;
 }
 
