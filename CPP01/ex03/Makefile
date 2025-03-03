@@ -1,4 +1,4 @@
-NAME	= ../zombie
+NAME	= ../weapon
 
 CC		= c++ -std=c++98
 FLAGS	= -Wall -Werror -Wextra
