@@ -2,7 +2,7 @@
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
-#include "Formatting.hpp"
+#include "../Formatting.hpp"
 #include <iostream>
 
 class Zombie {
@@ -14,5 +14,8 @@ class Zombie {
         ~Zombie();
         void announce();
 };
+
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif
