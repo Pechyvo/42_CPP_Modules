@@ -3,6 +3,10 @@ NAME	= ../megaphone
 CC		= c++ -std=c++98
 FLAGS	= -Wall -Werror -Wextra
 
+ifdef DEBUG
+FLAGS += -DDEBUG
+endif
+
 SRC		= *.cpp
 OBJ		= $(SRC:.cpp=.o)
 
