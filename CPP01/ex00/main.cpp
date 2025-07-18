@@ -7,12 +7,17 @@ int main(){
 
     std::string zombies[] = {"Walker","Crawler","Ghoul","Biter","Rotter","Stalker","Lurker","Shambler","Wanderer","Creeper"};
     for (int i = 0; i < 10; i++) {
-        std::cout << std::endl << YELLOW << "newZombie: " << zombies[i] << std::endl;
+        std::cout /* << std::endl  */<< CYAN << "newZombie: " << YELLOW << zombies[i] << std::endl;
         Zombie *zombie = newZombie(zombies[i]);
         zombie->announce();
         delete zombie;
-        std::cout << std::endl << YELLOW << "randomChump: " << zombies[i] << std::endl;
+#ifdef DEBUG
+        std::cout << std::endl;
+#endif
+        std::cout /* << std::endl */ << CYAN << "randomChump: " << YELLOW << zombies[i] << std::endl;
         randomChump(zombies[i]);
+        if (i < 9)
+            std::cout << std::endl;
     }
     
     return 0;
