@@ -1,7 +1,7 @@
 all: 
 	make -j$(nproc) -C ex00 
 	make -j$(nproc) -C ex01 
-	-make -j$(nproc) -C ex02
+	make -j$(nproc) -C ex02
 
 clean:
 	@make -C ex00 clean > /dev/null
@@ -12,7 +12,7 @@ clean:
 fclean:
 	@make -C ex00 fclean > /dev/null
 	@make -C ex01 fclean > /dev/null
-	-@make -C ex02 fclean > /dev/null
+	@make -C ex02 fclean > /dev/null
 	@echo "$(BOLD)$(YELLOW)FCleaning up...$(RESET)"
 
 #Debugging
