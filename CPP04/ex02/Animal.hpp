@@ -5,6 +5,7 @@
 #include "../Formatting.hpp"
 #include <iostream>
 #include <string>
+#include "Brain.hpp"
 
 class Animal {
     protected:
@@ -16,7 +17,7 @@ class Animal {
         Animal(const Animal& other);
         virtual ~Animal();
         Animal& operator= (const Animal& other);
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0;
         const std::string& getType() const;
 };
 

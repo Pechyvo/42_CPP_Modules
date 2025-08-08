@@ -5,6 +5,7 @@
 #include "../Formatting.hpp"
 #include <iostream>
 #include <string>
+#include "Brain.hpp"
 
 class Animal {
     protected:
