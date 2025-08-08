@@ -10,8 +10,32 @@ ClapTrap::ClapTrap(const std::string& name) : type("ClapTrap"), name(name), hitP
     this->hpThreshold = this->hitPoints;
 }
 
+ClapTrap::ClapTrap(const ClapTrap& other) {
+    this->type = other.type;
+    this->name = other.name;
+    this->hitPoints = other.hitPoints;
+    this->energyPoints = other.energyPoints;
+    this->attackDamage = other.attackDamage;
+    this->hpThreshold = other.hpThreshold;
+    std::cout << GREEN << "Copy ClapTrap constructor called for " << U_GREEN << name << RESET << std::endl;
+}
+
 ClapTrap::~ClapTrap() {
     std::cout << RED << "ClapTrap destructor called for " << U_RED << name << RESET << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+    if (this != &other) {
+        this->type = other.type;
+        this->name = other.name;
+        this->hitPoints = other.hitPoints;
+        this->energyPoints = other.energyPoints;
+        this->attackDamage = other.attackDamage;
+        this->hpThreshold = other.hpThreshold;
+    }
+    std::cout << GREEN << "Copy ClapTrap operator called for " << U_GREEN << name << RESET << std::endl;
+
+    return *this;
 }
 
 void ClapTrap::attack(const std::string& target) {
