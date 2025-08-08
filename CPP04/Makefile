@@ -1,7 +1,7 @@
 all: 
 	make -j$(nproc) -C ex00 
 	make -j$(nproc) -C ex01 
-	make -j$(nproc) -C ex02
+	-make -j$(nproc) -C ex02
 
 clean:
 	@make -C ex00 clean > /dev/null
@@ -12,7 +12,7 @@ clean:
 fclean:
 	@make -C ex00 fclean > /dev/null
 	@make -C ex01 fclean > /dev/null
-	@make -C ex02 fclean > /dev/null
+	-@make -C ex02 fclean > /dev/null
 	@echo "$(BOLD)$(YELLOW)FCleaning up...$(RESET)"
 
 #Debugging
@@ -48,82 +48,82 @@ STRIKETHROUGH = \033[9m
 
 #all - compile once, run all with valgrind
 run: fclean all
-	@echo "$(BOLD)$(YELLOW)Running ex00 (ClapTrap):$(RESET)"
-	$(VALGRIND) ./clap
+	@echo "$(BOLD)$(YELLOW)Running ex00 (Polymorphism):$(RESET)"
+	$(VALGRIND) ./poly
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex01 (ScavTrap):$(RESET)"
-	$(VALGRIND) ./scav
+	@echo "$(BOLD)$(YELLOW)Running ex01 (Fire):$(RESET)"
+	$(VALGRIND) ./fire
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex02 (FragTrap):$(RESET)"
-	$(VALGRIND) ./frag
+	@echo "$(BOLD)$(YELLOW)Running ex02 (Abstract class):$(RESET)"
+	$(VALGRIND) ./class
 
 #all - compile once, run all without valgrind
 runfast: fclean all
-	@echo "$(BOLD)$(YELLOW)Running ex00 (ClapTrap):$(RESET)"
-	./clap
+	@echo "$(BOLD)$(YELLOW)Running ex00 (Polymorphism):$(RESET)"
+	./poly
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex01 (ScavTrap):$(RESET)"
-	./scav
+	@echo "$(BOLD)$(YELLOW)Running ex01 (Fire):$(RESET)"
+	./fire
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex02 (FragTrap):$(RESET)"
-	./frag
+	@echo "$(BOLD)$(YELLOW)Running ex02 (Abstract class):$(RESET)"
+	./class
 
 #all - compile once in debug mode, run all with valgrind
 rund: fclean d
-	@echo "$(BOLD)$(YELLOW)Running ex00 (ClapTrap) - DEBUG:$(RESET)"
-	$(VALGRIND) ./clap
+	@echo "$(BOLD)$(YELLOW)Running ex00 (Polymorphism) - DEBUG:$(RESET)"
+	$(VALGRIND) ./poly
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex01 (ScavTrap) - DEBUG:$(RESET)"
-	$(VALGRIND) ./scav
+	@echo "$(BOLD)$(YELLOW)Running ex01 (Fire) - DEBUG:$(RESET)"
+	$(VALGRIND) ./fire
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex02 (FragTrap) - DEBUG:$(RESET)"
-	$(VALGRIND) ./frag
+	@echo "$(BOLD)$(YELLOW)Running ex02 (Abstract class) - DEBUG:$(RESET)"
+	$(VALGRIND) ./class
 
 #all - compile once in debug mode, run all without valgrind
 rundfast: fclean d
-	@echo "$(BOLD)$(YELLOW)Running ex00 (ClapTrap) - DEBUG:$(RESET)"
-	./clap
+	@echo "$(BOLD)$(YELLOW)Running ex00 (Polymorphism) - DEBUG:$(RESET)"
+	./poly
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex01 (ScavTrap) - DEBUG:$(RESET)"
-	./scav
+	@echo "$(BOLD)$(YELLOW)Running ex01 (Fire) - DEBUG:$(RESET)"
+	./fire
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex02 (FragTrap) - DEBUG:$(RESET)"
-	./frag
+	@echo "$(BOLD)$(YELLOW)Running ex02 (Abstract class) - DEBUG:$(RESET)"
+	./class
 
 #Individual exercises (compile and run with valgrind)
 #ex00
-clp: fclean all
-	$(VALGRIND) ./clap
+pl: fclean all
+	$(VALGRIND) ./poly
 
-clpd: fclean d
-	$(VALGRIND) ./clap
+pld: fclean d
+	$(VALGRIND) ./poly
 
 #ex01
-scv: fclean all
-	$(VALGRIND)  ./scav
+fr: fclean all
+	$(VALGRIND)  ./fire
 
-scvd: fclean d
-	$(VALGRIND)  ./scav
+frd: fclean d
+	$(VALGRIND)  ./fire
 
 #ex02
-frg: fclean all
-	$(VALGRIND)  ./frag
+cls: fclean all
+	$(VALGRIND)  ./class
 
-frgd: fclean d
-	$(VALGRIND)  ./frag
+clsd: fclean d
+	$(VALGRIND)  ./class
 
 #Individual exercises (just run, no compilation)
 #ex00
-clpr:
-	$(VALGRIND) ./clap
+plr:
+	$(VALGRIND) ./poly
 
 #ex01
-scvr:
-	$(VALGRIND)  ./scav
+frr:
+	$(VALGRIND)  ./fire
 
 #ex02
-frgr:
-	$(VALGRIND)  ./frag
+clsr:
+	$(VALGRIND)  ./class
 
 re: fclean all
 

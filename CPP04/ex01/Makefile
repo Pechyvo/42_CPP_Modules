@@ -1,4 +1,4 @@
-NAME	= ../
+NAME	= ../fire
 
 CC		= c++ -std=c++98
 FLAGS	= -Wall -Werror -Wextra

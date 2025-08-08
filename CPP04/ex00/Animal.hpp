@@ -9,11 +9,15 @@
 class Animal {
     protected:
         std::string type;
+        std::string name;
     public:
         Animal();
         Animal(std::string type);
-        virtual ~Animal() {}
-        virtual void makeSound() const = 0;
+        Animal(const Animal& other);
+        virtual ~Animal();
+        Animal& operator= (const Animal& other);
+        virtual void makeSound() const;
+        const std::string& getType() const;
 };
 
 #endif
