@@ -1,9 +1,11 @@
 .vscode/
 *.o
 rf/
+# CPP00
 megaphone
 phonebook
 account
+# CPP01
 zombie
 horde
 brain
@@ -12,10 +14,17 @@ sed
 *.replace
 harl
 harlFilter
+# CPP02
 fixed*
+# CPP03
 clap
 scav
 frag
+# CPP04
 poly
 fire
 class
+# CPP05
+bur
+form
+new_form
