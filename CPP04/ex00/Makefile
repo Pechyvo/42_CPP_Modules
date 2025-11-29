@@ -7,10 +7,13 @@ ifdef DEBUG
 FLAGS += -DDEBUG
 endif
 
-SRC		= *.cpp
+SRC		= $(wildcard *.cpp)
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
+
+%.o: %.cpp
+	$(CC) $(FLAGS) $< -c -o $@
 
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
