@@ -26,5 +26,9 @@ fire
 class
 # CPP05
 bur
-form
-new_form
+form*
+# CPP06
+conv
+ser
+type
+# CPP07
