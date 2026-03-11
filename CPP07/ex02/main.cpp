@@ -1,6 +1,8 @@
 #include "Array.hpp"
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
 #define MAX_VAL 750
 void test_evalsheet() {
