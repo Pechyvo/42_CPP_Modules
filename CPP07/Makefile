@@ -49,89 +49,89 @@ d: fclean
 
 # all - compile once, run all with valgrind
 run: fclean all
-	@echo "$(BOLD)$(YELLOW)Running ex00 (ScalarConverter):$(RESET)"
-	$(VALGRIND) ./conv
+	@echo "$(BOLD)$(YELLOW)Running ex00 (Function Templates):$(RESET)"
+	$(VALGRIND) ./template
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex01 (Serialization):$(RESET)"
-	$(VALGRIND) ./ser
+	@echo "$(BOLD)$(YELLOW)Running ex01 (Iter):$(RESET)"
+	$(VALGRIND) ./iter
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex02 (Type Identification):$(RESET)"
-	$(VALGRIND) ./type
+	@echo "$(BOLD)$(YELLOW)Running ex02 (Array):$(RESET)"
+	$(VALGRIND) ./array
 
 # all - compile once, run all without valgrind
 runfast: fclean all
-	@echo "$(BOLD)$(YELLOW)Running ex00 (ScalarConverter):$(RESET)"
-	./conv
+	@echo "$(BOLD)$(YELLOW)Running ex00 (Function Templates):$(RESET)"
+	./template
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex01 (Serialization):$(RESET)"
-	./ser
+	@echo "$(BOLD)$(YELLOW)Running ex01 (Iter):$(RESET)"
+	./iter
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex02 (Type Identification):$(RESET)"
-	./type
+	@echo "$(BOLD)$(YELLOW)Running ex02 (Array):$(RESET)"
+	./array
 
 # all - compile once in debug mode, run all with valgrind
 rund: fclean d
-	@echo "$(BOLD)$(YELLOW)Running ex00 (ScalarConverter) - DEBUG:$(RESET)"
-	$(VALGRIND) ./conv
+	@echo "$(BOLD)$(YELLOW)Running ex00 (Function Templates) - DEBUG:$(RESET)"
+	$(VALGRIND) ./template
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex01 (Serialization) - DEBUG:$(RESET)"
-	$(VALGRIND) ./ser
+	@echo "$(BOLD)$(YELLOW)Running ex01 (Iter) - DEBUG:$(RESET)"
+	$(VALGRIND) ./iter
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex02 (Type Identification) - DEBUG:$(RESET)"
-	$(VALGRIND) ./type
+	@echo "$(BOLD)$(YELLOW)Running ex02 (Array) - DEBUG:$(RESET)"
+	$(VALGRIND) ./array
 
 # all - compile once in debug mode, run all without valgrind
 rundfast: fclean d
-	@echo "$(BOLD)$(YELLOW)Running ex00 (ScalarConverter) - DEBUG:$(RESET)"
-	./conv
+	@echo "$(BOLD)$(YELLOW)Running ex00 (Function Templates) - DEBUG:$(RESET)"
+	./template
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex01 (Serialization) - DEBUG:$(RESET)"
-	./ser
+	@echo "$(BOLD)$(YELLOW)Running ex01 (Iter) - DEBUG:$(RESET)"
+	./iter
 	@echo
-	@echo "$(BOLD)$(YELLOW)Running ex02 (Type Identification) - DEBUG:$(RESET)"
-	./type
+	@echo "$(BOLD)$(YELLOW)Running ex02 (Array) - DEBUG:$(RESET)"
+	./array
 
 # Individual exercises (compile and run with valgrind)
 # ex00
-conv: fclean
+template: fclean
 	make -j$(nproc) -C ex00
-	$(VALGRIND) ./conv
+	$(VALGRIND) ./template
 
-convd: fclean
+templated: fclean
 	make -j$(nproc) -C ex00 DEBUG=1
-	$(VALGRIND) ./conv
+	$(VALGRIND) ./template
 
 # ex01
-ser: fclean
+iter: fclean
 	make -j$(nproc) -C ex01
-	$(VALGRIND) ./ser
+	$(VALGRIND) ./iter
 
-serd: fclean
+iterd: fclean
 	make -j$(nproc) -C ex01 DEBUG=1
-	$(VALGRIND) ./ser
+	$(VALGRIND) ./iter
 
 # ex02
-type: fclean
+array: fclean
 	make -j$(nproc) -C ex02
-	$(VALGRIND) ./type
+	$(VALGRIND) ./array
 
-typed: fclean
+arrayd: fclean
 	make -j$(nproc) -C ex02 DEBUG=1
-	$(VALGRIND) ./type
+	$(VALGRIND) ./array
 
 # Individual exercises (just run, no compilation)
 # ex00
-convr:
-	$(VALGRIND) ./conv
+templater:
+	$(VALGRIND) ./template
 
 # ex01
-serr:
-	$(VALGRIND) ./ser
+iterr:
+	$(VALGRIND) ./iter
 
 # ex02
-typer:
-	$(VALGRIND) ./type
+arrayr:
+	$(VALGRIND) ./array
 
 re: fclean all
 
-.PHONY: all clean fclean re d run runfast rund rundfast conv convd convr ser serd serr type typed typer
+.PHONY: all clean fclean re d run runfast rund rundfast template templated templater iter iterd iterr array arrayd arrayr

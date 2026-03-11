@@ -1,4 +1,4 @@
-NAME	= ../
+NAME	= ../array
 
 CC		= c++ -std=c++98
 FLAGS	= -Wall -Werror -Wextra

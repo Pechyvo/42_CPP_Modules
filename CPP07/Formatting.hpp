@@ -85,5 +85,8 @@
 #define ORANGE      "\033[38;5;208m"
 #define PINK        "\033[38;5;205m"
 #define LIME        "\033[38;5;118m"
+#define BRIGHT_BLUE "\033[94m"
+#define BRIGHT_GREEN "\033[92m"
+#define BRIGHT_RED "\033[91m"
 
 #endif
