@@ -36,5 +36,7 @@ template
 iter
 array
 # CPP08
-
+easyfind
+span
+mutant
 # CPP09
