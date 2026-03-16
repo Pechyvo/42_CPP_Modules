@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv) {
     if (argc != 2) {
-        std::cerr << RED << "Incorrect input. Try ./btc <inputFile>" << RESET << std::endl;
+        std::cerr << RED << "Error: bad arguments. Usage: ./btc <inputFile>" << RESET << std::endl;
         return 1;
     }
 
