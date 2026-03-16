@@ -11,6 +11,17 @@
 #include <map>
 #include <string>
 
+enum validation_flag {
+    INPUT,
+    DATA,
+};
+
+enum date_flag {
+    YEAR,
+    MONTH,
+    DAY,
+};
+
 class BitcoinExchange {
     private:
         std::map<std::string, double> _db;
@@ -19,7 +30,7 @@ class BitcoinExchange {
         bool isInputValid();
         bool isValidDate(std::string date);
         bool isValidDateFormat(std::string date);
-        bool isValidNum(std::string num);
+        bool isValidNum(std::string num, validation_flag flag);
         void execute();
     public:
         BitcoinExchange(const std::string& inputFile);
