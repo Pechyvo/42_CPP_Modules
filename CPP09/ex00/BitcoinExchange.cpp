@@ -16,14 +16,14 @@ bool BitcoinExchange::isInputValid() {
 
     getline(f, line);
     if (line != "date,exchange_rate") {
-        std::cerr << RED << "Error: corrupted db file => missing \"date,exchange_rate\"" << RESET << std::endl;
+        std::cerr << B_RED << "✗ Error: corrupted db file => missing \"date,exchange_rate\"" << RESET << std::endl;
         return false;
     }
 
     while (getline(f, line)) {
         size_t pos = line.find(',');
         if (pos == std::string::npos)
-            std::cerr << RED << "Error: bad input => " << line << RESET << std::endl;
+            std::cerr << B_RED << "✗ Error: bad input => " << I_YELLOW << line << B_RED << RESET << std::endl;
         std::string date = line.substr(0, pos);
         std::string num = line.substr(pos + 1);
         if (this->isValidDate(date) && this->isValidNum(num, DATA)) {
@@ -66,7 +66,7 @@ namespace {
 
 bool BitcoinExchange::isValidDate(std::string date) {
     if (date.size() != 10 || date[4] != '-' || date[7] != '-') {
-        std::cerr << RED << "Error: bad input => " << date << RESET << std::endl;
+        std::cerr << B_RED << "✗ Error: bad input => " << I_YELLOW << date << B_RED << RESET << std::endl;
         return false;
     }
 
@@ -74,7 +74,7 @@ bool BitcoinExchange::isValidDate(std::string date) {
 
     for (int i = YEAR; i <= DAY; ++i) {
         if (!this->isValidDateFormat(parts[i])) {
-            std::cerr << RED << "Error: bad input => " << date << RESET << std::endl;
+            std::cerr << B_RED << "✗ Error: bad input => " << I_YELLOW << date << B_RED << RESET << std::endl;
             return false;
         }
     }
@@ -91,7 +91,7 @@ bool BitcoinExchange::isValidDate(std::string date) {
             default:    valid = true;
         }
         if (!valid) {
-            std::cerr << RED << "Error: bad input => " << date << RESET << std::endl;
+            std::cerr << B_RED << "✗ Error: bad input => " << I_YELLOW << date << B_RED << RESET << std::endl;
             return false;
         }
     }
@@ -109,7 +109,7 @@ bool BitcoinExchange::isValidDateFormat(std::string date) {
 
 bool BitcoinExchange::isValidNum(std::string num, validation_flag flag) {
     if (num.empty()) {
-        std::cerr << RED << "Error: bad input." << RESET << std::endl;
+        std::cerr << B_RED << "✗ Error: bad input." << RESET << std::endl;
         return false;
     }
 
@@ -121,12 +121,12 @@ bool BitcoinExchange::isValidNum(std::string num, validation_flag flag) {
     for (std::string::iterator it = num.begin(); it != num.end(); ++it) {
         if (*it == '.') {
             if (hasDot || it == num.begin() || it + 1 == num.end()) {
-                std::cerr << RED << "Error: bad input." << RESET << std::endl;
+                std::cerr << B_RED << "✗ Error: bad input." << RESET << std::endl;
                 return false;
             }
             hasDot = true;
         } else if (!std::isdigit(static_cast<unsigned char>(*it))) {
-            std::cerr << RED << "Error: bad input." << RESET << std::endl;
+            std::cerr << B_RED << "✗ Error: bad input." << RESET << std::endl;
             return false;
         } else if (hasDot) {
             afterDot++;
@@ -134,20 +134,20 @@ bool BitcoinExchange::isValidNum(std::string num, validation_flag flag) {
     }
 
     if (*pEnd != '\0' || res < 0) {
-        std::cerr << RED << "Error: not a positive number." << RESET << std::endl;
+        std::cerr << B_RED << "✗ Error: not a positive number." << RESET << std::endl;
         return false;
     }
 
     switch (flag) {
         case DATA:
             if (hasDot && afterDot > 2) {
-                std::cerr << RED << "Error: bad input." << RESET << std::endl;
+                std::cerr << B_RED << "✗ Error: bad input." << RESET << std::endl;
                 return false;
             }
             break;
         case INPUT:
             if (res > 1000) {
-                std::cerr << RED << "Error: too large a number." << RESET << std::endl;
+                std::cerr << B_RED << "✗ Error: too large a number." << RESET << std::endl;
                 return false;
             }
             break;
@@ -167,7 +167,7 @@ void BitcoinExchange::execute() {
     while (getline(f, line)) {
         size_t pos = line.find('|');
         if (pos == std::string::npos) {
-            std::cerr << RED << "Error: bad input => " << line << RESET << std::endl;
+            std::cerr << B_RED << "✗ Error: bad input => " << I_YELLOW << line << B_RED << RESET << std::endl;
             continue;
         }
         std::string date = line.substr(0, pos);
@@ -186,11 +186,11 @@ void BitcoinExchange::execute() {
         if (it == this->_db.end()) {
             it = this->_db.lower_bound(date);
             if (it == this->_db.begin()) {
-                std::cerr << RED << "Error: bad input => " << date << RESET << std::endl;
+                std::cerr << B_RED << "✗ Error: bad input => " << I_YELLOW << date << B_RED << RESET << std::endl;
                 continue;
             }
             --it;
         }
-        std::cout << date << " => " << value << " = " << value * it->second << std::endl;
+        std::cout << CYAN << date << RESET << " => " << YELLOW << value << RESET << " = " << B_GREEN << value * it->second << RESET << std::endl;
     }
 }
