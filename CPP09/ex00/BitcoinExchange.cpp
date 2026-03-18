@@ -23,8 +23,6 @@ BitcoinExchange::~BitcoinExchange() {}
 
 bool BitcoinExchange::isInputValid() {
 	std::string line;
-	if (this->_dbFile.empty())
-		throw BitcoinExchangeDbFileMissingException();
 	std::fstream f(this->_dbFile.c_str());
 
 	if (!f.is_open())

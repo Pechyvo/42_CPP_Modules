@@ -45,13 +45,6 @@ class BitcoinExchange {
 					return "Error: could not open db file";
 				}
 		};
-
-		class BitcoinExchangeDbFileMissingException : public std::exception {
-			public:
-				virtual const char* what() const throw() {
-					return "Error: db file path is not set";
-				}
-		};
 };
 
 #endif
