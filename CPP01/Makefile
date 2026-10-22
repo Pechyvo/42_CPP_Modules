@@ -1,41 +1,41 @@
-all: 
-	make -j$(nproc) -C ex00 
-	make -j$(nproc) -C ex01 
-	make -j$(nproc) -C ex02
-	make -j$(nproc) -C ex03
-	make -j$(nproc) -C ex04
-	make -j$(nproc) -C ex05
-	make -j$(nproc) -C ex06
+all:
+	$(MAKE) -C ex00
+	$(MAKE) -C ex01
+	$(MAKE) -C ex02
+	$(MAKE) -C ex03
+	$(MAKE) -C ex04
+	$(MAKE) -C ex05
+	$(MAKE) -C ex06
 
 clean:
-	@make -C ex00 clean > /dev/null
-	@make -C ex01 clean > /dev/null
-	@make -C ex02 clean > /dev/null
-	@make -C ex03 clean > /dev/null
-	@make -C ex04 clean > /dev/null
-	@make -C ex05 clean > /dev/null
-	@make -C ex06 clean > /dev/null
+	@$(MAKE) -C ex00 clean > /dev/null
+	@$(MAKE) -C ex01 clean > /dev/null
+	@$(MAKE) -C ex02 clean > /dev/null
+	@$(MAKE) -C ex03 clean > /dev/null
+	@$(MAKE) -C ex04 clean > /dev/null
+	@$(MAKE) -C ex05 clean > /dev/null
+	@$(MAKE) -C ex06 clean > /dev/null
 	@echo "$(BOLD)$(YELLOW)Cleaning up...$(RESET)"
 
 fclean:
-	@make -C ex00 fclean > /dev/null
-	@make -C ex01 fclean > /dev/null
-	@make -C ex02 fclean > /dev/null
-	@make -C ex03 fclean > /dev/null
-	@make -C ex04 fclean > /dev/null
-	@make -C ex05 fclean > /dev/null
-	@make -C ex06 fclean > /dev/null
+	@$(MAKE) -C ex00 fclean > /dev/null
+	@$(MAKE) -C ex01 fclean > /dev/null
+	@$(MAKE) -C ex02 fclean > /dev/null
+	@$(MAKE) -C ex03 fclean > /dev/null
+	@$(MAKE) -C ex04 fclean > /dev/null
+	@$(MAKE) -C ex05 fclean > /dev/null
+	@$(MAKE) -C ex06 fclean > /dev/null
 	@echo "$(BOLD)$(YELLOW)FCleaning up...$(RESET)"
 
 #Debugging
 d: fclean
-	make -j$(nproc) -C ex00 DEBUG=1
-	make -j$(nproc) -C ex01 DEBUG=1
-	make -j$(nproc) -C ex02 DEBUG=1
-	make -j$(nproc) -C ex03 DEBUG=1
-	make -j$(nproc) -C ex04 DEBUG=1
-	make -j$(nproc) -C ex05 DEBUG=1
-	make -j$(nproc) -C ex06 DEBUG=1
+	$(MAKE) -C ex00 DEBUG=1
+	$(MAKE) -C ex01 DEBUG=1
+	$(MAKE) -C ex02 DEBUG=1
+	$(MAKE) -C ex03 DEBUG=1
+	$(MAKE) -C ex04 DEBUG=1
+	$(MAKE) -C ex05 DEBUG=1
+	$(MAKE) -C ex06 DEBUG=1
 
 #Run Exercises
 

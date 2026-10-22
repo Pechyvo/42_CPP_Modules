@@ -21,29 +21,29 @@ STRIKETHROUGH = \033[9m
 # Variable to control valgrind usage
 VALGRIND = valgrind --leak-check=full
 
-all: 
-	make -j$(nproc) -C ex00
-	make -j$(nproc) -C ex01 
-	make -j$(nproc) -C ex02
+all:
+	$(MAKE) -C ex00
+	$(MAKE) -C ex01
+	$(MAKE) -C ex02
 
 clean:
-	@make -C ex00 clean > /dev/null
-	@make -C ex01 clean > /dev/null
-	@make -C ex02 clean > /dev/null
+	@$(MAKE) -C ex00 clean > /dev/null
+	@$(MAKE) -C ex01 clean > /dev/null
+	@$(MAKE) -C ex02 clean > /dev/null
 	@echo "$(BOLD)$(YELLOW)Cleaning up...$(RESET)"
 
 fclean:
-	@make -C ex00 fclean > /dev/null
-	@make -C ex01 fclean > /dev/null
-	@make -C ex02 fclean > /dev/null
+	@$(MAKE) -C ex00 fclean > /dev/null
+	@$(MAKE) -C ex01 fclean > /dev/null
+	@$(MAKE) -C ex02 fclean > /dev/null
 	@rm -rf *_shrubbery
 	@echo "$(BOLD)$(YELLOW)FCleaning up...$(RESET)"
 
 # Debugging
 d: fclean
-	make -j$(nproc) -C ex00 DEBUG=1
-	make -j$(nproc) -C ex01 DEBUG=1
-	make -j$(nproc) -C ex02 DEBUG=1
+	$(MAKE) -C ex00 DEBUG=1
+	$(MAKE) -C ex01 DEBUG=1
+	$(MAKE) -C ex02 DEBUG=1
 
 # Run Exercises
 
@@ -94,29 +94,29 @@ rundfast: fclean d
 # Individual exercises (compile and run with valgrind)
 # ex00
 easyfind: fclean
-	make -j$(nproc) -C ex00
+	$(MAKE) -C ex00
 	$(VALGRIND) ./easyfind
 
 easyfind_d: fclean
-	make -j$(nproc) -C ex00 DEBUG=1
+	$(MAKE) -C ex00 DEBUG=1
 	$(VALGRIND) ./easyfind
 
 # ex01
 span: fclean
-	make -j$(nproc) -C ex01
+	$(MAKE) -C ex01
 	$(VALGRIND) ./span
 
 span_d: fclean
-	make -j$(nproc) -C ex01 DEBUG=1
+	$(MAKE) -C ex01 DEBUG=1
 	$(VALGRIND) ./span
 
 # ex02
 mutant: fclean
-	make -j$(nproc) -C ex02
+	$(MAKE) -C ex02
 	$(VALGRIND) ./mutant
 
 mutant_d: fclean
-	make -j$(nproc) -C ex02 DEBUG=1
+	$(MAKE) -C ex02 DEBUG=1
 	$(VALGRIND) ./mutant
 
 # Individual exercises (just run, no compilation)

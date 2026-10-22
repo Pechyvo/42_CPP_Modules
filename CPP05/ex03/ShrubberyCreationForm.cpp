@@ -8,19 +8,19 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("ShrubberyCreationForm", 145, 137), target(target) {
 #ifdef DEBUG
-	std::cout <<  GREEN << "[DEBUG] Modified ShrubberyCreationForm constructor called for " << U_GREEN << this->name << RESET << std::endl;
+	std::cout <<  GREEN << "[DEBUG] Modified ShrubberyCreationForm constructor called for " << U_GREEN << this->getName() << RESET << std::endl;
 #endif
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other), target(other.target) {
 #ifdef DEBUG
-	std::cout <<  GREEN << "[DEBUG] Copy ShrubberyCreationForm constructor called for " << U_GREEN << this->name << RESET << std::endl;
+	std::cout <<  GREEN << "[DEBUG] Copy ShrubberyCreationForm constructor called for " << U_GREEN << this->getName() << RESET << std::endl;
 #endif
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 #ifdef DEBUG
-	std::cout <<  GREEN << "[DEBUG] ShrubberyCreationForm destructor called for " << U_GREEN << this->name << RESET << std::endl;
+	std::cout <<  GREEN << "[DEBUG] ShrubberyCreationForm destructor called for " << U_GREEN << this->getName() << RESET << std::endl;
 #endif
 }
 

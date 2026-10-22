@@ -21,29 +21,29 @@ STRIKETHROUGH = \033[9m
 # Variable to control valgrind usage
 VALGRIND = valgrind --leak-check=full
 
-all: 
-	make -j$(nproc) -C ex00
-	make -j$(nproc) -C ex01 
-	make -j$(nproc) -C ex02
+all:
+	$(MAKE) -C ex00
+	$(MAKE) -C ex01
+	$(MAKE) -C ex02
 
 clean:
-	@make -C ex00 clean > /dev/null
-	@make -C ex01 clean > /dev/null
-	@make -C ex02 clean > /dev/null
+	@$(MAKE) -C ex00 clean > /dev/null
+	@$(MAKE) -C ex01 clean > /dev/null
+	@$(MAKE) -C ex02 clean > /dev/null
 	@echo "$(BOLD)$(YELLOW)Cleaning up...$(RESET)"
 
 fclean:
-	@make -C ex00 fclean > /dev/null
-	@make -C ex01 fclean > /dev/null
-	@make -C ex02 fclean > /dev/null
+	@$(MAKE) -C ex00 fclean > /dev/null
+	@$(MAKE) -C ex01 fclean > /dev/null
+	@$(MAKE) -C ex02 fclean > /dev/null
 	@rm -rf *_shrubbery
 	@echo "$(BOLD)$(YELLOW)FCleaning up...$(RESET)"
 
 # Debugging
 d: fclean
-	make -j$(nproc) -C ex00 DEBUG=1
-	make -j$(nproc) -C ex01 DEBUG=1
-	make -j$(nproc) -C ex02 DEBUG=1
+	$(MAKE) -C ex00 DEBUG=1
+	$(MAKE) -C ex01 DEBUG=1
+	$(MAKE) -C ex02 DEBUG=1
 
 # Run Exercises
 
@@ -94,29 +94,29 @@ rundfast: fclean d
 # Individual exercises (compile and run with valgrind)
 # ex00
 template: fclean
-	make -j$(nproc) -C ex00
+	$(MAKE) -C ex00
 	$(VALGRIND) ./template
 
 templated: fclean
-	make -j$(nproc) -C ex00 DEBUG=1
+	$(MAKE) -C ex00 DEBUG=1
 	$(VALGRIND) ./template
 
 # ex01
 iter: fclean
-	make -j$(nproc) -C ex01
+	$(MAKE) -C ex01
 	$(VALGRIND) ./iter
 
 iterd: fclean
-	make -j$(nproc) -C ex01 DEBUG=1
+	$(MAKE) -C ex01 DEBUG=1
 	$(VALGRIND) ./iter
 
 # ex02
 array: fclean
-	make -j$(nproc) -C ex02
+	$(MAKE) -C ex02
 	$(VALGRIND) ./array
 
 arrayd: fclean
-	make -j$(nproc) -C ex02 DEBUG=1
+	$(MAKE) -C ex02 DEBUG=1
 	$(VALGRIND) ./array
 
 # Individual exercises (just run, no compilation)

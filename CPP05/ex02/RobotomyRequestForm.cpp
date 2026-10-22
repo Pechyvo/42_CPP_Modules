@@ -10,19 +10,19 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("RobotomyRequestForm", 72, 45), target(target) {
 #ifdef DEBUG
-	std::cout <<  GREEN << "[DEBUG] Modified RobotomyRequestForm constructor called for " << U_GREEN << this->name << RESET << std::endl;
+	std::cout <<  GREEN << "[DEBUG] Modified RobotomyRequestForm constructor called for " << U_GREEN << this->getName() << RESET << std::endl;
 #endif
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other), target(other.target) {
 #ifdef DEBUG
-	std::cout <<  GREEN << "[DEBUG] Copy RobotomyRequestForm constructor called for " << U_GREEN << this->name << RESET << std::endl;
+	std::cout <<  GREEN << "[DEBUG] Copy RobotomyRequestForm constructor called for " << U_GREEN << this->getName() << RESET << std::endl;
 #endif
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {
 #ifdef DEBUG
-	std::cout <<  GREEN << "[DEBUG] RobotomyRequestForm destructor called for " << U_GREEN << this->name << RESET << std::endl;
+	std::cout <<  GREEN << "[DEBUG] RobotomyRequestForm destructor called for " << U_GREEN << this->getName() << RESET << std::endl;
 #endif
 }
 

@@ -3,7 +3,7 @@ NAME	= ../scav
 CC		= c++ -std=c++98
 FLAGS	= -Wall -Werror -Wextra
 
-ifdef DEBUG
+ifeq ($(DEBUG),1)
 FLAGS += -DDEBUG
 endif
 

@@ -8,19 +8,19 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("PresidentialPardonForm", 25, 5), target(target) {
 #ifdef DEBUG
-	std::cout <<  GREEN << "[DEBUG] Modified PresidentialPardonForm constructor called for " << U_GREEN << this->name << RESET << std::endl;
+	std::cout <<  GREEN << "[DEBUG] Modified PresidentialPardonForm constructor called for " << U_GREEN << this->getName() << RESET << std::endl;
 #endif
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other), target(other.target) {
 #ifdef DEBUG
-	std::cout <<  GREEN << "[DEBUG] Copy PresidentialPardonForm constructor called for " << U_GREEN << this->name << RESET << std::endl;
+	std::cout <<  GREEN << "[DEBUG] Copy PresidentialPardonForm constructor called for " << U_GREEN << this->getName() << RESET << std::endl;
 #endif
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {
 #ifdef DEBUG
-	std::cout <<  GREEN << "[DEBUG] PresidentialPardonForm destructor called for " << U_GREEN << this->name << RESET << std::endl;
+	std::cout <<  GREEN << "[DEBUG] PresidentialPardonForm destructor called for " << U_GREEN << this->getName() << RESET << std::endl;
 #endif
 }
 
